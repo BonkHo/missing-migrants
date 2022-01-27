@@ -64,6 +64,7 @@ const App = () => {
 					xValue={xValue}
 					yValue={yValue}
 					toolTipFormat={xAxisTickFormat}
+					markRadius={2}
 				/>
 				<text
 					className="axis-label"
