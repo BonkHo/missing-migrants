@@ -19,11 +19,11 @@ const App = () => {
 	const yAxisLabelOffset = -70;
 
 	const xAxisLabel = "Time";
-	const yAxisLabel = "Temperature";
-	const xValue = (d) => d.timestamp;
-	const yValue = (d) => d.temperature;
+	const yAxisLabel = "Total Dead and Missing";
+	const xValue = (d) => d["Reported Date"];
+	const yValue = (d) => d["Total Dead and Missing"];
 
-	const xAxisTickFormat = timeFormat("%a");
+	const xAxisTickFormat = timeFormat("%m/%d/%y");
 
 	if (!data) {
 		return <pre>"Loading"</pre>;
