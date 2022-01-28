@@ -1,5 +1,5 @@
 import React from "react";
-import { extent, scaleLinear, scaleTime, format, timeFormat } from "d3";
+import { extent, scaleLinear, scaleTime, bin, timeFormat } from "d3";
 import { useData } from "./hooks/useData";
 import "./App.css";
 
@@ -39,6 +39,12 @@ const App = () => {
 		.range([innerHeight, 0])
 		.nice();
 
+	const binnedData = bin()
+		.value(xValue)
+		.domain(xScale.domain())
+		.thresholds(xScale.ticks(20))(data);
+
+	console.log(binnedData);
 	return (
 		<svg width={width} height={height}>
 			<g transform={`translate(${margin.left}, ${margin.top})`}>
