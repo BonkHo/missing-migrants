@@ -1,5 +1,12 @@
 import React from "react";
-import { extent, scaleLinear, scaleTime, bin, timeFormat } from "d3";
+import {
+	extent,
+	scaleLinear,
+	scaleTime,
+	bin,
+	timeFormat,
+	timeMonths,
+} from "d3";
 import { useData } from "./hooks/useData";
 import "./App.css";
 
@@ -39,10 +46,12 @@ const App = () => {
 		.range([innerHeight, 0])
 		.nice();
 
+	const [start, stop] = xScale.domain();
+
 	const binnedData = bin()
 		.value(xValue)
 		.domain(xScale.domain())
-		.thresholds(xScale.ticks(20))(data);
+		.thresholds(timeMonths(start, stop))(data);
 
 	console.log(binnedData);
 	return (
