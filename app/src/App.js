@@ -6,6 +6,7 @@ import {
 	bin,
 	timeFormat,
 	timeMonths,
+	sum,
 } from "d3";
 import { useData } from "./hooks/useData";
 import "./App.css";
@@ -51,7 +52,8 @@ const App = () => {
 	const binnedData = bin()
 		.value(xValue)
 		.domain(xScale.domain())
-		.thresholds(timeMonths(start, stop))(data);
+		.thresholds(timeMonths(start, stop))(data)
+		.map((array) => ({ totalDeadAndMissing: sum(array, yValue) }));
 
 	console.log(binnedData);
 	return (
