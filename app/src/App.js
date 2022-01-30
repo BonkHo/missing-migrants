@@ -15,7 +15,7 @@ import "./App.css";
 // Components
 import AxisBottom from "./components/AxisBottom";
 import AxisLeft from "./components/AxisLeft";
-import CircleMark from "./components/CircleMark";
+import Bar from "./components/Bar";
 
 const App = () => {
 	const width = 1200;
@@ -77,12 +77,12 @@ const App = () => {
 					{yAxisLabel}
 				</text>
 				<AxisLeft yScale={yScale} innerWidth={innerWidth} />
-				<CircleMark
+				<Bar
 					binnedData={binnedData}
 					xScale={xScale}
 					yScale={yScale}
 					toolTipFormat={xAxisTickFormat}
-					markRadius={2}
+					innerHeight={innerHeight}
 				/>
 				<text
 					className="axis-label"

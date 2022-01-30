@@ -1,17 +1,17 @@
 import React from "react";
 import { line } from "d3";
 
-const CircleMark = ({
+const Bar = ({
 	binnedData,
 	yScale,
 	xScale,
 	yValue,
 	xValue,
 	toolTipFormat,
-	markRadius = 3,
+	innerHeight,
 }) => {
 	return (
-		<g className="marks">
+		<g className="bars">
 			<path
 				stroke="black"
 				fill="none"
@@ -20,12 +20,17 @@ const CircleMark = ({
 					.y((d) => yScale(yValue(d)))}
 			/>
 			{binnedData.map((d) => (
-				<circle cx={xScale(d.x0)} cy={yScale(d.y)} r={markRadius}>
+				<rect
+					x={xScale(d.x0)}
+					y={yScale(d.y)}
+					width={xScale(d.x1) - xScale(d.x0)}
+					height={innerHeight - yScale(d.y)}
+				>
 					<title>{toolTipFormat(d.y)}</title>
-				</circle>
+				</rect>
 			))}
 		</g>
 	);
 };
 
-export default CircleMark;
+export default Bar;

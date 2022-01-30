@@ -10,15 +10,17 @@ body {
 	fill: #635f5d;
 }
 
-.marks path {
+.bars path {
 	stroke: #42a5b3;
 	stroke-width: 4;
 	stroke-linejoin: round;
 	stroke-linecap: round;
 }
 
-.marks circle {
+.bars rect {
 	fill: #42a5b3;
+	stroke: white;
+	stroke-width: 2;
 }
 
 .axis-label {
