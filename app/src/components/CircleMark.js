@@ -1,8 +1,8 @@
 import React from "react";
-import { curveNatural, line } from "d3";
+import { line } from "d3";
 
 const CircleMark = ({
-	data,
+	binnedData,
 	yScale,
 	xScale,
 	yValue,
@@ -19,9 +19,9 @@ const CircleMark = ({
 					.x((d) => xScale(xValue(d)))
 					.y((d) => yScale(yValue(d)))}
 			/>
-			{data.map((d) => (
-				<circle cx={xScale(xValue(d))} cy={yScale(yValue(d))} r={markRadius}>
-					<title>{toolTipFormat(xValue(d))}</title>
+			{binnedData.map((d) => (
+				<circle cx={xScale(d.x0)} cy={yScale(d.y)} r={markRadius}>
+					<title>{toolTipFormat(d.y)}</title>
 				</circle>
 			))}
 		</g>

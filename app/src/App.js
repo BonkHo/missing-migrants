@@ -4,7 +4,7 @@ import {
 	scaleLinear,
 	scaleTime,
 	bin,
-	timeFormat, 
+	timeFormat,
 	timeMonths,
 	sum,
 	max,
@@ -56,9 +56,8 @@ const App = () => {
 		}));
 
 	const yScale = scaleLinear()
-		.domain([0, max(binnedData)])
-		.range([innerHeight, 0])
-		.nice();
+		.domain([0, max(binnedData, (d) => d.y)])
+		.range([innerHeight, 0]);
 
 	return (
 		<svg width={width} height={height}>
@@ -79,11 +78,9 @@ const App = () => {
 				</text>
 				<AxisLeft yScale={yScale} innerWidth={innerWidth} />
 				<CircleMark
-					data={data}
+					binnedData={binnedData}
 					xScale={xScale}
 					yScale={yScale}
-					xValue={xValue}
-					yValue={yValue}
 					toolTipFormat={xAxisTickFormat}
 					markRadius={2}
 				/>
