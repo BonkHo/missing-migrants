@@ -20,7 +20,7 @@ body {
 .bars rect {
 	fill: #42a5b3;
 	stroke: white;
-	stroke-width: 2;
+	stroke-width: 1;
 }
 
 .axis-label {
