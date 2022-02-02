@@ -1,6 +1,6 @@
 import React from "react";
 import { useWorldAtlas } from "./hooks/useWorldAtlas";
-import { useCities } from "./hooks/useCities";
+import { useData } from "./hooks/useData";
 import { max, scaleSqrt } from "d3";
 import "./App.css";
 
@@ -11,9 +11,9 @@ const App = () => {
 	const width = 1200;
 	const height = 500;
 	const worldAtlas = useWorldAtlas();
-	const cities = useCities();
+	const data = useData();
 
-	if (!worldAtlas || !cities) {
+	if (!worldAtlas || !data) {
 		return <pre>"Loading"</pre>;
 	}
 
@@ -21,14 +21,14 @@ const App = () => {
 	const maxRadius = 15;
 
 	const sizeScale = scaleSqrt()
-		.domain([0, max(cities, sizeValue)])
+		.domain([0, max(data, sizeValue)])
 		.range([0, maxRadius]);
 
 	return (
 		<svg width={width} height={height}>
 			<Mark
 				worldAtlas={worldAtlas}
-				cities={cities}
+				data={data}
 				sizeScale={sizeScale}
 				sizeValue={sizeValue}
 			/>

@@ -7,7 +7,7 @@ const graticule = geoGraticule();
 
 const Mark = ({
 	worldAtlas: { land, interiors },
-	cities,
+	data,
 	sizeScale,
 	sizeValue,
 }) => {
