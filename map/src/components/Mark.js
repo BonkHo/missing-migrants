@@ -19,8 +19,8 @@ const Mark = ({
 				<path className="land" d={path(feature)} />
 			))}
 			<path className="interiors" d={path(interiors)}></path>
-			{cities.map((d) => {
-				const [x, y] = projection([d.lng, d.lat]);
+			{data.map((d) => {
+				const [x, y] = projection(d.coords);
 				return <circle cx={x} cy={y} r={sizeScale(sizeValue(d))} />;
 			})}
 		</g>

@@ -17,7 +17,7 @@ const App = () => {
 		return <pre>"Loading"</pre>;
 	}
 
-	const sizeValue = (d) => d.population;
+	const sizeValue = (d) => d["Total Dead and Missing"];
 	const maxRadius = 15;
 
 	const sizeScale = scaleSqrt()

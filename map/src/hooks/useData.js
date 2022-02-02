@@ -5,7 +5,10 @@ const csvUrl =
 	"https://gist.githubusercontent.com/curran/a9656d711a8ad31d812b8f9963ac441c/raw/267eac8b97d161c479d950ffad3ddd5ce2d1f370/MissingMigrants-Global-2019-10-08T09-47-14-subset.csv";
 
 const row = (d) => {
-	d.coords = d["Location Coordinates"].split(",").map((d) => +d);
+	d.coords = d["Location Coordinates"]
+		.split(",")
+		.map((d) => +d)
+		.reverse();
 	d["Total Dead and Missing"] = +d["Total Dead and Missing"];
 	return d;
 };
