@@ -6,6 +6,7 @@ import "./App.css";
 
 // Components
 import Mark from "./components/Mark";
+import BubbleMap from "./components/BubbleMap";
 
 const App = () => {
 	const width = 1200;
@@ -26,6 +27,7 @@ const App = () => {
 
 	return (
 		<svg width={width} height={height}>
+			<BubbleMap />
 			<Mark
 				worldAtlas={worldAtlas}
 				data={data}
